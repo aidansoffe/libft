@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amunarbe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/25 17:15:57 by amunarbe          #+#    #+#             */
-/*   Updated: 2019/02/25 18:42:49 by amunarbe         ###   ########.fr       */
+/*   Created: 2019/02/25 23:28:47 by amunarbe          #+#    #+#             */
+/*   Updated: 2019/02/25 23:35:02 by amunarbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
 
-void		*ft_memset(void *b, int c, size_t len)
+int					ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	char		*word;
-	size_t		i;
+	unsigned char	*ns1;
+	unsigned char	*ns2;
+	size_t			i;
 
+	ns1 = (unsigned char *)s1;
+	ns2 = (unsigned char *)s2;
 	i = 0;
-	word = *b;
-	while (len > 0)
+	if (i == 0)
+		return (0);
+	else
 	{
-		word[i] = c;
-		word[i++];
-		len--;
+		while (i < n && *ns1 == *ns2)
+		{
+			i++;
+			ns1++;
+			ns2++;
+		}
 	}
-	return (b);
+	return (*ns1 - *ns2);
 }

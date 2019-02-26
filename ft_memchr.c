@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amunarbe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/25 17:15:57 by amunarbe          #+#    #+#             */
-/*   Updated: 2019/02/25 18:42:49 by amunarbe         ###   ########.fr       */
+/*   Created: 2019/02/25 23:17:43 by amunarbe          #+#    #+#             */
+/*   Updated: 2019/02/25 23:28:01 by amunarbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		*ft_memset(void *b, int c, size_t len)
+void				*ft_memchr(const void *s, int c, size_t n)
 {
-	char		*word;
-	size_t		i;
+	unsigned char	*ss;
+	size_t			i;
 
+	ss = (unsigned char *)s;
 	i = 0;
-	word = *b;
-	while (len > 0)
+	if (ss[i] != c)
+		return (NULL);
+	else
 	{
-		word[i] = c;
-		word[i++];
-		len--;
+		while (i < 0)
+		{
+			if (ss[i] == c)
+				return ((void *)&ss[i]);
+			i++;
+		}
 	}
-	return (b);
 }

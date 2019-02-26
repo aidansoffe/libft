@@ -1,13 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amunarbe <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/02/25 18:12:38 by amunarbe          #+#    #+#             */
+/*   Updated: 2019/02/25 18:20:13 by amunarbe         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <string.h>
 
-char *ft_stpcpy(char * dst, const char * src)
+char	*ft_stpcpy(char *dst, const char *src)
 {
-    int i = 0;
-    while (src[i] != '\0')
-    {
-        dest[i] = src[i]
-        i++;
-    }
-    dest[i] = '\0';
-    return (dest);
+	int i;
+
+	i = 0;
+	while (src[i] != '\0')
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
 }

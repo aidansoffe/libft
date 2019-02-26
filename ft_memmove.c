@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amunarbe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/25 17:15:57 by amunarbe          #+#    #+#             */
-/*   Updated: 2019/02/25 18:42:49 by amunarbe         ###   ########.fr       */
+/*   Created: 2019/02/25 23:36:15 by amunarbe          #+#    #+#             */
+/*   Updated: 2019/02/25 23:50:18 by amunarbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
 
-void		*ft_memset(void *b, int c, size_t len)
+void			*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char		*word;
+	char		*ndst;
+	const char	*nsrc;
 	size_t		i;
 
+	ndst = (char *)dst;
+	nsrc = (const char *)src;
 	i = 0;
-	word = *b;
-	while (len > 0)
+	while (i < len)
 	{
-		word[i] = c;
-		word[i++];
-		len--;
+		ndst[i] = nsrc[i];
+		i++;
 	}
-	return (b);
+	return (dst);
 }

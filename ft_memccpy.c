@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amunarbe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/25 17:15:57 by amunarbe          #+#    #+#             */
-/*   Updated: 2019/02/25 18:42:49 by amunarbe         ###   ########.fr       */
+/*   Created: 2019/02/25 17:09:57 by amunarbe          #+#    #+#             */
+/*   Updated: 2019/02/25 19:21:48 by amunarbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
 
-void		*ft_memset(void *b, int c, size_t len)
+void				*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	char		*word;
-	size_t		i;
+	unsigned char	*ndst;
+	unsigned char	*nsrc;
+	int				i;
 
+	ndst = (unsigned char *)dst;
+	nsrc = (unsigned char *)src;
 	i = 0;
-	word = *b;
-	while (len > 0)
+	while (n-- > 0)
 	{
-		word[i] = c;
-		word[i++];
-		len--;
+		if (nsrc[i] == (char)c)
+		{
+			ndst[i] = nsrc[i];
+			return (ndst[i + 1]);
+		}
+		ndst[i] = nsrc[i];
+		i++;
 	}
-	return (b);
+	return (NULL);
 }
