@@ -6,13 +6,13 @@
 /*   By: amunarbe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 15:55:38 by amunarbe          #+#    #+#             */
-/*   Updated: 2019/02/25 16:13:41 by amunarbe         ###   ########.fr       */
+/*   Updated: 2019/02/27 21:00:23 by amunarbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
-
+//hello
 static	int	ft_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
