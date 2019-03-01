@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 /*
 ** Appends a copy of the null-terminated string s2 to the end of the

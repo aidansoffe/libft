@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amunarbe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/26 14:11:50 by amunarbe          #+#    #+#             */
-/*   Updated: 2019/02/26 14:30:15 by amunarbe         ###   ########.fr       */
+/*   Created: 2019/02/27 22:09:54 by amunarbe          #+#    #+#             */
+/*   Updated: 2019/02/27 22:10:21 by amunarbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strdup(const char *s1)
+char	*ft_strnstr(const char *ab1, const char *ab2, size_t n)
 {
-	char	*fresh;
-	int		i;
+	char	*source;
+	char	*f;
+	size_t	size;
 
-	i = 0;
-	fresh = (char *)malloc(sizeof(char) * (ft_strlen(s1) + 1));
-	if (!fresh)
+	if (*ab1 == '\0')
 		return (NULL);
-	while (s1[i] != '\0')
+	source = (char *)ab1;
+	f = (char *)ab2;
+	size = ft_strlen(f);
+	if (!(*f))
+		return ((char*)ab1);
+	if (size == 0)
+		return (char *)(source);
+	if (size > n)
+		return ((char *)NULL);
+	while (n-- >= size && *source)
 	{
-		fresh[i] = s1[i];
-		i++;
+		if (ft_strncmp(source, f, size) == 0)
+			return ((char *)source);
+		source++;
 	}
-	fresh[i] = '\0';
-	return (fresh);
+	return ((char *)NULL);
 }

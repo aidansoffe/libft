@@ -5,24 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amunarbe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/27 12:14:56 by amunarbe          #+#    #+#             */
-/*   Updated: 2019/02/27 12:39:45 by amunarbe         ###   ########.fr       */
+/*   Created: 2019/02/28 12:44:27 by amunarbe          #+#    #+#             */
+/*   Updated: 2019/02/28 14:00:19 by amunarbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
 	int	k;
 
 	k = 0;
-	while (s[i])
+	while (s[k])
 	{
-		if (s[i] == (char)c)
-			return ((char *)&s[i]);
-		i += 1;
+		if (s[k] == '\0')
+			return (NULL);
+		if (s[k] == (char)c)
+			return ((char)&s[k + 1]);
+		k++;
 	}
-	if (s[i] == '\0')
-		return (NULL);
 }

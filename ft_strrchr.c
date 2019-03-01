@@ -6,15 +6,15 @@
 /*   By: amunarbe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/27 17:52:18 by amunarbe          #+#    #+#             */
-/*   Updated: 2019/02/27 18:33:20 by amunarbe         ###   ########.fr       */
+/*   Updated: 2019/02/28 12:18:32 by amunarbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char		*ft_strrchr(const char *s, int c)
 {
-	char *lst;
+	char	*lst;
 
 	lst = (0);
 	while (*s)

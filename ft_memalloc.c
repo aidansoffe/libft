@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amunarbe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/26 18:31:14 by amunarbe          #+#    #+#             */
-/*   Updated: 2019/02/26 18:33:24 by amunarbe         ###   ########.fr       */
+/*   Created: 2019/02/28 15:16:21 by amunarbe          #+#    #+#             */
+/*   Updated: 2019/02/28 15:32:43 by amunarbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strncat(char *restrict s1, const char *restrict s2, size_t n)
-{
-	size_t k;
+/*
+** Allocates with malloc() and returns a “fresh” memory area. The memory
+** allocated is initialized to 0.
+** If the allocation fails, the function returns NULL.
+*/
 
-	k = 0;
-	while (i < n && s2[i])
+void				*ft_memalloc(size_t size)
+{
+	unsigned char	*fresh;
+
+	fresh = NULL;
+	if (size)
 	{
-		s1[i] = s2[i];
-		i++;
+		if (!(fresh = (unsigned char *)malloc(size)))
+			return (NULL);
+		while (size)
+			fresh[--size] = 0;
 	}
-	while (i < n)
-	{
-		s1[i] = '\0';
-		i++;
-	}
-	return (s1);
+	return ((void *)fresh);
 }

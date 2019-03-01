@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amunarbe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/26 18:31:14 by amunarbe          #+#    #+#             */
-/*   Updated: 2019/02/26 18:33:24 by amunarbe         ###   ########.fr       */
+/*   Created: 2019/02/28 15:31:53 by amunarbe          #+#    #+#             */
+/*   Updated: 2019/02/28 15:33:07 by amunarbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strncat(char *restrict s1, const char *restrict s2, size_t n)
+void	ft_memdel(void **freed)
 {
-	size_t k;
-
-	k = 0;
-	while (i < n && s2[i])
+	if (freed)
 	{
-		s1[i] = s2[i];
-		i++;
+		free(*freed);
+		*freed = NULL;
 	}
-	while (i < n)
-	{
-		s1[i] = '\0';
-		i++;
-	}
-	return (s1);
 }
