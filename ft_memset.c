@@ -6,7 +6,7 @@
 /*   By: amunarbe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 17:15:57 by amunarbe          #+#    #+#             */
-/*   Updated: 2019/02/25 18:42:49 by amunarbe         ###   ########.fr       */
+/*   Updated: 2019/03/03 23:10:57 by amunarbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void		*ft_memset(void *b, int c, size_t len)
 {
-	char		*word;
-	size_t		i;
+	unsigned char	*word;
+	size_t			i;
 
 	i = 0;
-	word = *b;
+	word = (unsigned char *)b;
 	while (len > 0)
 	{
 		word[i] = c;
-		word[i++];
+		i++;
 		len--;
 	}
 	return (b);

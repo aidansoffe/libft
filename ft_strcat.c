@@ -18,18 +18,21 @@
 ** must have sufficient space to hold the result.
 */
 
-char	*ft_strcat(char *restrict s1, const char *restrict s2)
+char	*ft_strcat(char *s1, const char *s2)
 {
-	int s;
-	int lent;
+	unsigned int i;
+	unsigned int j;
 
-	s = 0;
-	lent = 0;
-	while (s2[i])
+	i = 0;
+	while (s1[i] != '\0')
+		++i;
+	j = 0;
+	while (s2[j] != '\0')
 	{
-		s1[len + 1] = s2[i];
+		s1[i] = s2[j];
 		i++;
+		++j;
 	}
-	s1[len + 1] = '\0';
+	s1[i] = '\0';
 	return (s1);
 }

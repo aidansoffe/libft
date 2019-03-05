@@ -6,7 +6,7 @@
 /*   By: amunarbe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/27 17:52:18 by amunarbe          #+#    #+#             */
-/*   Updated: 2019/02/28 12:18:32 by amunarbe         ###   ########.fr       */
+/*   Updated: 2019/03/04 16:06:07 by amunarbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,13 @@
 
 char		*ft_strrchr(const char *s, int c)
 {
-	char	*lst;
+	size_t	len;
 
-	lst = (0);
-	while (*s)
-	{
-		if (s == c)
-			lst = (char *)s;
-		++s;
-	}
-	if (lst)
-		return (lst);
-	if (c == '\0')
-		return ((char*)s);
-	return (0);
+	len = ft_strlen(s);
+	if ((char)c == '\0')
+		return ((char *)s + len);
+	while (len--)
+		if (*(s + len) == c)
+			return ((char *)(s + len));
+	return (NULL);
 }
