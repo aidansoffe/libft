@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amunarbe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/25 17:03:54 by amunarbe          #+#    #+#             */
-/*   Updated: 2019/03/05 12:17:37 by amunarbe         ###   ########.fr       */
+/*   Created: 2019/03/07 14:11:19 by amunarbe          #+#    #+#             */
+/*   Updated: 2019/03/07 14:34:26 by amunarbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-int		ft_isalpha(int c)
+t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	return (ft_islower(c) || ft_isupper(c));
+	t_list *nlist;
+
+	if (lst != NULL && f != NULL)
+	{
+		nlist = f(lst);
+		if (nlist != NULL && lst->next != NULL)
+			nlist->next = ft_lstmap(lst->next, f);
+		return (nlist);
+	}
+	return (NULL);
 }

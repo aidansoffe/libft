@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amunarbe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/25 17:03:54 by amunarbe          #+#    #+#             */
-/*   Updated: 2019/03/05 12:17:37 by amunarbe         ###   ########.fr       */
+/*   Created: 2019/03/06 16:04:32 by amunarbe          #+#    #+#             */
+/*   Updated: 2019/03/06 16:04:38 by amunarbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isalpha(int c)
+void	ft_swap(int *a, int *b)
 {
-	return (ft_islower(c) || ft_isupper(c));
+	int		tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }

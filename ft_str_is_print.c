@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_StrIsPrintable.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amunarbe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/25 17:03:54 by amunarbe          #+#    #+#             */
-/*   Updated: 2019/03/05 12:17:37 by amunarbe         ###   ########.fr       */
+/*   Created: 2019/03/06 16:10:08 by amunarbe          #+#    #+#             */
+/*   Updated: 2019/03/06 16:10:14 by amunarbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int		ft_isalpha(int c)
+int		ft_str_is_print1(char *str)
 {
-	return (ft_islower(c) || ft_isupper(c));
+	int		i;
+
+	i = 0;
+	while (str[i])
+		if (!ft_isprint(str[i++]))
+			return (0);
+	return (1);
 }

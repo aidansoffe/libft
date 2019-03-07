@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amunarbe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/25 17:03:54 by amunarbe          #+#    #+#             */
-/*   Updated: 2019/03/05 12:17:37 by amunarbe         ###   ########.fr       */
+/*   Created: 2019/03/07 14:03:13 by amunarbe          #+#    #+#             */
+/*   Updated: 2019/03/07 14:04:26 by amunarbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-int		ft_isalpha(int c)
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-	return (ft_islower(c) || ft_isupper(c));
+	while (lst != NULL)
+	{
+		(*f)(lst);
+		lst = lst->next;
+	}
 }

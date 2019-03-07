@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amunarbe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/27 22:09:54 by amunarbe          #+#    #+#             */
-/*   Updated: 2019/03/05 00:39:40 by amunarbe         ###   ########.fr       */
+/*   Created: 2019/03/06 19:45:29 by amunarbe          #+#    #+#             */
+/*   Updated: 2019/03/06 20:11:20 by amunarbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-char	*ft_strnstr(const char *str, const char *substr, size_t n)
+t_list		*ft_lstnew(void const *content, size_t content_size)
 {
-	char	*s;
-	char	*f;
-	size_t	size;
+	t_list	*fresh;
 
-	if (*str == '\0')
+	fresh = (t_list *)malloc(sizeof(t_list));
+	if (!fresh)
 		return (NULL);
-	s = (char *)str;
-	f = (char *)substr;
-	size = ft_strlen(f);
-	if (!(*f))
-		return ((char*)str);
-	if (size == 0)
-		return (char *)(s);
-	if (size > n)
-		return ((char *)NULL);
-	while (n-- >= size && *s)
+	if (content == NULL || content_size == 0)
 	{
-		if (ft_strncmp(s, f, size) == 0)
-			return ((char *)s);
-		s++;
+		fresh->content = NULL;
+		fresh->content_size = 0;
 	}
-	return ((char *)NULL);
+	else
+	{
+		fresh->content = ft_memalloc(content_size);
+		fresh->content = ft_memcpy(fresh->content, content, content_size);
+		fresh->content_size = content_size;
+	}
+	fresh->next = NULL;
+	return (fresh);
 }
